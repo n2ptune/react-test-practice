@@ -1,6 +1,5 @@
-import React from 'react'
 import { fireEvent, render } from '@testing-library/react'
-import App from './App'
+import App from '../App'
 
 describe('<App />', () => {
   test('Render base elements', () => {
@@ -22,12 +21,9 @@ describe('<App />', () => {
     const utils = render(<App />)
     const n = utils.getByText('0')
     const decrease = utils.getByText('Minus')
-    // fireEvent.click(decrease)
-
     for (let i = 0; i < 50; i++) {
       fireEvent.click(decrease)
     }
-
     expect(n).toHaveTextContent('-50')
   })
 })
